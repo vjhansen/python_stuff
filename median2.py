@@ -4,16 +4,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def median_blur(img, kernel):
-    Width, Height, Ch = img.shape
+    Width, Height = img.shape
     N = kernel
 
     # Padding image
-    padding = (N - 1) // 2
-    if Ch == 1: # GRAY = 1 channel, trengs ikke...
-        padding = ((padding, padding,), (padding, padding))
-    else: # RGB = 3 channels
-        padding = ((padding, padding,), (padding, padding), (0, 0))
-
+    pad_xy = (N - 1) // 2
+    padding = ((pad_xy, pad_xy,), (pad_xy, pad_xy), (0, 0))
     img_pad = np.pad(img, padding, mode='constant', constant_values=0)
 
     # Find median
@@ -26,7 +22,7 @@ def median_blur(img, kernel):
 if __name__ == "__main__":
     test_img = plt.imread('head.jpg')
 
-    kernel_size = 7
+    kernel_size = 7 # change this, e.g. 3, 5, 7, 9, 13, etc..
     median_blur_img = median_blur(test_img, kernel_size)
 
     _, (ax1, ax2) = plt.subplots(1, 2)
