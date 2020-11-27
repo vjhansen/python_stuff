@@ -663,12 +663,6 @@ yourselves
 you've
 z
 zero
-input
-output
-bit
-digital
-voltage
-system
 example
 will
 led
@@ -677,6 +671,7 @@ Anthony
 t
 note
 set
-code
-program
-data
+Fig
+Table
+Chapter
+Figure
